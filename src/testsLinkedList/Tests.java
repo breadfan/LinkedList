@@ -26,40 +26,54 @@ public class Tests extends prod.LinkedList {
 
     @Test
     public void testPopBack() throws Exception {
+        int [] arr = generateRandomIntArray(ARRAY_SIZE, SEED);
 
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        for (int i : arr) {
+            linkedList.addfront(i);
+        }
+
+        assertTrue("Smth goes wrong here: ", linkedList.popFront() == arr[0]);
     }
 
 
     @Test
     public void testPopFront() throws Exception {
+        int [] arr = generateRandomIntArray(ARRAY_SIZE, SEED);
 
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        for (int i : arr) {
+            linkedList.addfront(i);
+        }
+
+        assertTrue("Smth goes wrong here: ", linkedList.popFront() == arr[0]);
     }
 
-    /*
-        @Test
-        public void testPopFrontFromEmpty() throws Exception{
 
-        }
+    @Test
+    public void testPopFrontFromEmpty() throws Exception{
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        assertTrue("LL is empty: ", linkedList.popFront() != null);
+    }
 
-        @Test
-        public void testPopBackFromEmpty() throws Exception{
+    @Test
+    public void testPopBackFromEmpty() throws Exception{
+       LinkedList<Integer> linkedList = new LinkedList<>();
+        assertTrue("LL is empty: ", linkedList.popBack() != null);
+    }
 
-            LinkedList<Integer> linkedList = new LinkedList();
-            assertTrue()
-            //assertTrue("hey you've fucked up", linkedList.popBack() == "OH SHI-, List is empty");
-        }
-    */
+
     @Test
     public void testAddFront() throws Exception {
         int[] arr = generateRandomIntArray(ARRAY_SIZE, SEED);
 
-        LinkedList<Integer> linkedList = new LinkedList();
+        LinkedList<Integer> linkedList = new LinkedList<>();
         for (int i : arr) {
             linkedList.addfront(i);
         }
         LinkedList<Integer> n = linkedList;
         for (int i : arr) {
-            assertTrue("hey, el " + n.head.info + " is fucked up", arr[i] == n.head.info);
+            assertTrue("hey, el " + n.head.info + " is in wrong order", arr[i] == n.head.info);
             n.head = n.head.next;
         }
     }
@@ -68,13 +82,13 @@ public class Tests extends prod.LinkedList {
     public void testAppEnd() throws Exception {
         int[] arr = generateRandomIntArray(ARRAY_SIZE, SEED);
 
-        LinkedList<Integer> linkedList = new LinkedList();
+        LinkedList<Integer> linkedList = new LinkedList<>();
         for (int i : arr) {
             linkedList.append(i);
         }
         LinkedList<Integer> n = linkedList;
         for (int i : arr) {
-            assertTrue("hey, el " + n.head.info + " is fucked up", arr[i] == n.head.info);
+            assertTrue("hey, el " + n.head.info + " is in wrong order", arr[i] == n.head.info);
             n.head = n.head.next;
         }
     }

@@ -29,7 +29,7 @@ public class LinkedList<T> {
 
     public void insertAfter(T elem, int ind) {
         if (isEmpty() || ind < -1 || ind > (size - 1))
-            System.out.println("OH shI-, list is empty or list doesn't have this element");
+            System.out.println("List is empty or list doesn't have this element");
         else if (ind == -1)
             addfront(elem);
         else if (ind == (size - 1))
@@ -65,26 +65,28 @@ public class LinkedList<T> {
         return head == null;
     }
 
-    public void popBack() {
+    public T popBack() {
         if (!isEmpty()) {
             --size;
             T temp = tail.info;
             tail = tail.prev;
             tail.next = null;
-            System.out.println(temp);
+            return temp;
         } else {
-            System.out.println("OH SHI-, List is empty");
+            System.out.println("List is empty");
+            return null;
         }
     }
 
-    public void popFront() {
+    public T popFront() {
         if (!isEmpty()) {
             --size;
             T temp = head.info;
             head = head.next;
-            System.out.println(temp);
+            return temp;
         } else {
-            System.out.println("OH SHI-, List is empty");
+            System.out.println("List is empty");
+            return null;
         }
     }
 
